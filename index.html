@@ -149,13 +149,22 @@
         <main class="container-centered container-split">
             <div>
                 <p class="subtitle">VOCARIUM - TU BRÚJULA VOCACIONAL</p>
-                <h1 class="main-title">Sistema Integral de Orientación Profesional</h1>
-                <p class="description">Bienvenido a nuestra plataforma institucional de asesoría vocacional y selección universitaria en México.</p>
+                <h1 class="main-title">Descubre tu camino profesional</h1>
+                <p class="description">Plataforma integral de orientación vocacional y selección universitaria para estudiantes.</p>
                 
-                <div class="card">
-                    <h2 style="margin-bottom: 1rem;">Acceso al Sistema</h2>
-                    <p class="description" style="margin-bottom: 1rem;">El sistema se encuentra en modalidad de evaluación abierta. Haz clic en el botón para ingresar directamente a la plataforma.</p>
-                    <button type="button" class="btn btn-primary" id="boton-ingresar-portada" style="width: 100%;">Iniciar Sesión / Entrar</button>
+                <div class="card" id="tarjeta-inicio-sesion">
+                    <h2 style="margin-bottom: 1rem;">Iniciar sesión</h2>
+                    <form id="formulario-login">
+                        <div class="form-group">
+                            <label for="login-correo">Correo electrónico</label>
+                            <input type="email" id="login-correo" placeholder="nombre@correo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-pass">Contraseña</label>
+                            <input type="password" id="login-pass" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Entrar a la plataforma</button>
+                    </form>
                 </div>
             </div>
 
@@ -165,7 +174,7 @@
                     <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                 </svg>
                 <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.75rem;">Tu futuro universitario</h3>
-                <p class="description" style="color: #a0aec0; margin-bottom: 0;">Herramientas avanzadas de simulación y evaluación vocacional.</p>
+                <p class="description" style="color: #a0aec0; margin-bottom: 0;">Herramientas de simulación y evaluación vocacional adaptadas a tu perfil.</p>
             </div>
         </main>
         
@@ -184,8 +193,8 @@
         <main class="container-centered container-split">
             <div>
                 <p class="subtitle">CONÓCENOS</p>
-                <h1 class="main-title">Orientación vocacional estratégica para tu futuro</h1>
-                <p class="description">Vocarium es una plataforma diseñada para guiar a los estudiantes en la toma de decisiones académicas y profesionales. Combinamos la evaluación de competencias individuales con una amplia base de datos sobre la oferta superior en México.</p>
+                <h1 class="main-title">Orientación vocacional para tu futuro</h1>
+                <p class="description">Vocarium es una plataforma diseñada para guiar a los estudiantes en la toma de decisiones académicas y profesionales. Combinamos la evaluación de competencias individuales con información sobre la oferta superior en México.</p>
                 
                 <div class="card" style="margin-bottom: 1.5rem;">
                     <h3 style="margin-bottom: 0.5rem; color: #8c6d46;">Nuestra Misión</h3>
@@ -197,7 +206,7 @@
 
             <div style="display: grid; gap: 1rem;">
                 <div class="card" style="border-left: 4px solid #8c6d46;">
-                    <h4>1. Test Vocacional Inteligente</h4>
+                    <h4>1. Test Vocacional</h4>
                     <p class="description" style="margin-bottom: 0; font-size: 0.85rem;">Evalúa tus afinidades analíticas, creativas, sociales, jurídicas y directivas.</p>
                 </div>
                 <div class="card" style="border-left: 4px solid #8c6d46;">
@@ -251,7 +260,7 @@
                     <div class="card-badge">2</div>
                     <div class="card-info">
                         <h3>Explora universidades y oferta superior</h3>
-                        <p>Filtra universidades públicas y privadas con nuestro formulario avanzado.</p>
+                        <p>Filtra universidades públicas y privadas con nuestro formulario.</p>
                     </div>
                     <div>&rarr;</div>
                 </div>
@@ -486,30 +495,26 @@
             <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
         </nav>
 
-        <main class="container-centered container-split">
-            <div>
+        <main class="container-centered" style="flex-direction: column; align-items: center; max-width: 900px;">
+            <div style="width: 100%; margin-bottom: 2rem;">
                 <p class="subtitle">FILTRADO DE INSTITUCIONES</p>
-                <h1 class="main-title">Formulario Avanzado de Selección</h1>
-                <p class="description">Utiliza este formulario validado para encontrar las opciones académicas ideales según tus criterios específicos de ubicación, presupuesto y tipo de institución.</p>
-                <div class="card" style="background-color: #0f1c24; color: #ffffff; border: 1px solid #1a2d3d;">
-                    <h3 style="color: #8c6d46; margin-bottom: 0.5rem;">Criterios de Validación</h3>
-                    <p class="description" style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0;">El campo de correo requiere formato institucional válido (ejemplo@correo.com) y el presupuesto mensual debe ser un valor numérico mayor a $500 pesos.</p>
-                </div>
+                <h1 class="main-title">Formulario de Selección Universitaria</h1>
+                <p class="description">Utiliza este formulario para encontrar las opciones académicas ideales según tus criterios específicos de ubicación, presupuesto y tipo de institución.</p>
             </div>
 
-            <div class="results-sidebar">
+            <div class="results-sidebar" style="width: 100%;">
                 <span class="subtitle">FORMULARIO INSTITUCIONAL</span>
                 <h3 style="margin-top: 0.5rem; margin-bottom: 1rem;">Parámetros de Búsqueda</h3>
                 
                 <form id="formulario-filtros-avanzado" novalidate>
                     <div class="grupo-formulario-oscuro">
-                        <label for="campo-correo-aspirante">Correo de Contacto (Validación de formato)</label>
+                        <label for="campo-correo-aspirante">Correo de Contacto</label>
                         <input type="text" id="campo-correo-aspirante" placeholder="nombre@correo.com" required>
                         <span id="error-correo" class="mensaje-error hidden">Por favor ingresa un correo electrónico válido (ej. usuario@dominio.com).</span>
                     </div>
 
                     <div class="grupo-formulario-oscuro">
-                        <label for="campo-presupuesto">Presupuesto Mensual Mínimo ($ MXN) [Validación > $500]</label>
+                        <label for="campo-presupuesto">Presupuesto Mensual Mínimo ($ MXN)</label>
                         <input type="number" id="campo-presupuesto" placeholder="Ej. 2500" required>
                         <span id="error-presupuesto" class="mensaje-error hidden">El presupuesto debe ser un número válido mayor a $500 MXN.</span>
                     </div>
@@ -546,7 +551,7 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="boton-filtrar">Ejecutar Búsqueda Validada</button>
+                    <button type="submit" class="boton-filtrar">Ejecutar Búsqueda</button>
                 </form>
             </div>
         </main>
@@ -577,8 +582,9 @@
                 <h1 class="main-title">Instituciones Recomendadas</h1>
                 <p class="description" id="texto-filtros-aplicados" style="margin-bottom: 1.5rem;"></p>
 
-                <div class="actions-row">
-                    <button type="button" class="btn btn-secondary" id="boton-regresar-formulario">&larr; Modificar Formulario</button>
+                <div class="actions-row" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-secondary" id="boton-regresar-formulario" style="flex: 1;">&larr; Modificar Formulario</button>
+                    <button type="button" class="btn btn-primary" id="boton-ir-simulador-desde-universidades" style="flex: 1;">Ir al Simulador &rarr;</button>
                 </div>
             </div>
 
@@ -657,11 +663,14 @@
         const vistaResultadosUniversidades = document.getElementById('vista-resultados-universidades');
         const vistaSimulador = document.getElementById('vista-simulador');
 
-        const botonIngresarPortada = document.getElementById('boton-ingresar-portada');
+        const formularioLogin = document.getElementById('formulario-login');
         const botonIniciarMenu = document.getElementById('boton-iniciar-menu');
 
-        if (botonIngresarPortada) {
-            botonIngresarPortada.addEventListener('click', () => {
+        let testCompletado = false;
+
+        if (formularioLogin) {
+            formularioLogin.addEventListener('submit', (evento) => {
+                evento.preventDefault();
                 cambiarVistaGlobal(vistaConocenos);
             });
         }
@@ -684,14 +693,32 @@
             vistaDestino.classList.remove('hidden');
         }
 
-        document.querySelectorAll('.sub-navbar button, .option-card, #logo-menu, #logo-resultados, #logo-formulario, #logo-simulador, #tarjeta-ir-test, #tarjeta-ir-buscador, #tarjeta-ir-simulador, #boton-ir-buscador-desde-resultados, #boton-ir-simulador-desde-resultados').forEach(elemento => {
+        document.querySelectorAll('.sub-navbar button, .option-card, #logo-menu, #logo-resultados, #logo-formulario, #logo-simulador, #tarjeta-ir-test, #tarjeta-ir-buscador, #tarjeta-ir-simulador, #boton-ir-buscador-desde-resultados, #boton-ir-simulador-desde-resultados, #boton-ir-simulador-desde-universidades').forEach(elemento => {
             elemento.addEventListener('click', function() {
                 const destino = this.getAttribute('data-destino') || this.id;
+                
+                if ((destino === 'test' || destino === 'tarjeta-ir-test') && testCompletado) {
+                    alert("Ya has completado el test vocacional.");
+                    return;
+                }
+
+                if ((destino === 'formulario-universidades' || destino === 'tarjeta-ir-buscador' || destino === 'boton-ir-buscador-desde-resultados') && !testCompletado) {
+                    alert("Debes completar primero el Test Vocacional (Sección 1) antes de acceder al Buscador Universitario.");
+                    cambiarVistaGlobal(vistaTest);
+                    return;
+                }
+
+                if ((destino === 'simulador' || destino === 'tarjeta-ir-simulador' || destino === 'boton-ir-simulador-desde-resultados' || destino === 'boton-ir-simulador-desde-universidades') && !testCompletado) {
+                    alert("Debes completar primero el Test Vocacional (Sección 1) antes de acceder al Simulador.");
+                    cambiarVistaGlobal(vistaTest);
+                    return;
+                }
+
                 if (destino === 'menu' || destino === 'logo-menu') cambiarVistaGlobal(vistaMenu);
                 else if (destino === 'test' || destino === 'tarjeta-ir-test') cambiarVistaGlobal(vistaTest);
                 else if (destino === 'resultados') cambiarVistaGlobal(vistaResultados);
                 else if (destino === 'formulario-universidades' || destino === 'tarjeta-ir-buscador' || destino === 'boton-ir-buscador-desde-resultados') cambiarVistaGlobal(vistaFormularioUniversidades);
-                else if (destino === 'simulador' || destino === 'tarjeta-ir-simulador' || destino === 'boton-ir-simulador-desde-resultados') cambiarVistaGlobal(vistaSimulador);
+                else if (destino === 'simulador' || destino === 'tarjeta-ir-simulador' || destino === 'boton-ir-simulador-desde-resultados' || destino === 'boton-ir-simulador-desde-universidades') cambiarVistaGlobal(vistaSimulador);
             });
         });
 
@@ -722,6 +749,7 @@
                     actualizarInterfazTest();
                 } else {
                     calcularResultadoTestCompleto();
+                    testCompletado = true;
                     cambiarVistaGlobal(vistaResultados);
                 }
             });

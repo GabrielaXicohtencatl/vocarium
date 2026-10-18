@@ -1,16 +1,16 @@
 :root {
-    --bg-primary: #f8f6f2;
-    --bg-surface: #ffffff;
-    --bg-card: #f2ede4;
-    --text-main: #2d2b2a;
-    --text-muted: #6b6560;
-    --accent-brown: #8c6d46;
-    --accent-hover: #6e5434;
-    --accent-light: #e8dfd1;
-    --border-color: #e0d8cc;
-    --error-color: #d9534f;
-    --font-sans: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Lora', 'Playfair Display', Georgia, serif;
+    --fondo-primario: #f8f6f2;
+    --fondo-superficie: #ffffff;
+    --fondo-tarjeta: #f2ede4;
+    --texto-principal: #2d2b2a;
+    --texto-atenuado: #6b6560;
+    --acento-marron: #8c6d46;
+    --acento-hover: #6e5434;
+    --acento-claro: #e8dfd1;
+    --color-borde: #e0d8cc;
+    --color-error: #d9534f;
+    --fuente-sans: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
+    --fuente-serif: 'Lora', 'Playfair Display', Georgia, serif;
 }
 
 * {
@@ -24,9 +24,9 @@ html, body {
 }
 
 body {
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-    font-family: var(--font-sans);
+    background-color: var(--fondo-primario);
+    color: var(--texto-principal);
+    font-family: var(--fuente-sans);
     line-height: 1.5;
     display: flex;
     flex-direction: column;
@@ -37,10 +37,9 @@ body {
     display: none !important;
 }
 
-/* Header oscuro superior */
 header.header, header.navbar, header.encabezado {
     background-color: #0f1c24;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--color-borde);
     padding: 1.25rem 2.5rem;
     display: flex;
     justify-content: space-between;
@@ -48,7 +47,7 @@ header.header, header.navbar, header.encabezado {
 }
 
 .logo, .header-logo {
-    font-family: var(--font-serif);
+    font-family: var(--fuente-serif);
     font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
@@ -64,10 +63,9 @@ header.header, header.navbar, header.encabezado {
     text-transform: uppercase;
 }
 
-/* Menú Horizontal Integrado */
 .sub-navbar {
-    background-color: var(--bg-surface);
-    border-bottom: 1px solid var(--border-color);
+    background-color: var(--fondo-superficie);
+    border-bottom: 1px solid var(--color-borde);
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -80,25 +78,24 @@ header.header, header.navbar, header.encabezado {
     background: none;
     border: none;
     padding: 0.85rem 1.25rem;
-    font-family: var(--font-sans);
+    font-family: var(--fuente-sans);
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--texto-atenuado);
     cursor: pointer;
     border-bottom: 3px solid transparent;
     transition: all 0.2s ease;
 }
 
 .nav-item:hover {
-    color: var(--accent-brown);
+    color: var(--acento-marron);
 }
 
 .nav-item.active {
-    color: var(--accent-brown);
-    border-bottom-color: var(--accent-brown);
+    color: var(--acento-marron);
+    border-bottom-color: var(--acento-marron);
 }
 
-/* Estructura para centrar y evitar amontonamientos */
 .section-wrapper {
     flex: 1;
     display: flex;
@@ -130,31 +127,31 @@ header.header, header.navbar, header.encabezado {
 }
 
 .card {
-    background: var(--bg-surface);
+    background: var(--fondo-superficie);
     border-radius: 16px;
     padding: 2rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--color-borde);
     box-shadow: 0 4px 12px rgba(0,0,0,0.02);
 }
 
 .subtitle {
     font-size: 0.75rem;
     letter-spacing: 1.5px;
-    color: var(--accent-brown);
+    color: var(--acento-marron);
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 0.4rem;
 }
 
 .main-title {
-    font-family: var(--font-serif);
+    font-family: var(--fuente-serif);
     font-size: 2.2rem;
     line-height: 1.2;
     margin-bottom: 0.75rem;
 }
 
 .description {
-    color: var(--text-muted);
+    color: var(--texto-atenuado);
     margin-bottom: 1.5rem;
 }
 
@@ -168,22 +165,22 @@ header.header, header.navbar, header.encabezado {
 .form-group label {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--text-main);
+    color: var(--texto-principal);
 }
 
 .form-group input, .form-group select {
     padding: 0.75rem 1rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
-    font-family: var(--font-sans);
+    font-family: var(--fuente-sans);
     font-size: 0.95rem;
-    background-color: var(--bg-surface);
+    background-color: var(--fondo-superficie);
     outline: none;
     transition: border-color 0.2s;
 }
 
 .form-group input:focus, .form-group select:focus {
-    border-color: var(--accent-brown);
+    border-color: var(--acento-marron);
 }
 
 .btn {
@@ -210,13 +207,13 @@ header.header, header.navbar, header.encabezado {
 }
 
 .btn-secondary {
-    background-color: var(--bg-surface);
-    color: var(--text-main);
-    border: 1px solid var(--border-color);
+    background-color: var(--fondo-superficie);
+    color: var(--texto-principal);
+    border: 1px solid var(--color-borde);
 }
 
 .btn-secondary:hover {
-    background-color: var(--bg-card);
+    background-color: var(--fondo-tarjeta);
 }
 
 .card-links {
@@ -227,7 +224,7 @@ header.header, header.navbar, header.encabezado {
 }
 
 .card-links a {
-    color: var(--accent-brown);
+    color: var(--acento-marron);
     text-decoration: none;
 }
 
@@ -241,8 +238,8 @@ header.header, header.navbar, header.encabezado {
 }
 
 .option-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background: var(--fondo-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 12px;
     padding: 1.25rem 1.5rem;
     display: flex;
@@ -253,13 +250,13 @@ header.header, header.navbar, header.encabezado {
 }
 
 .option-card:hover {
-    border-color: var(--accent-brown);
+    border-color: var(--acento-marron);
     transform: translateY(-2px);
 }
 
 .card-badge {
-    background: var(--bg-card);
-    color: var(--accent-brown);
+    background: var(--fondo-tarjeta);
+    color: var(--acento-marron);
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -280,7 +277,7 @@ header.header, header.navbar, header.encabezado {
 
 .card-info p {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--texto-atenuado);
 }
 
 .progreso-container {
@@ -290,7 +287,7 @@ header.header, header.navbar, header.encabezado {
 .progreso-text {
     font-size: 0.85rem;
     font-weight: 600;
-    color: var(--text-muted);
+    color: var(--texto-atenuado);
     display: block;
     margin-bottom: 0.4rem;
 }
@@ -298,21 +295,21 @@ header.header, header.navbar, header.encabezado {
 .barra-bg {
     width: 100%;
     height: 6px;
-    background: var(--border-color);
+    background: var(--color-borde);
     border-radius: 3px;
     overflow: hidden;
 }
 
 .barra-fill {
     height: 100%;
-    background: var(--accent-brown);
+    background: var(--acento-marron);
     width: 33.33%;
     transition: width 0.3s ease;
 }
 
 .question-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background: var(--fondo-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 12px;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -338,25 +335,25 @@ header.header, header.navbar, header.encabezado {
 
 .btn-option {
     padding: 0.8rem 1rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background: var(--fondo-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
     text-align: left;
     cursor: pointer;
     font-size: 0.9rem;
-    color: var(--text-main);
+    color: var(--texto-principal);
     transition: all 0.2s;
 }
 
 .btn-option:hover {
-    border-color: var(--accent-brown);
-    background: var(--bg-card);
+    border-color: var(--acento-marron);
+    background: var(--fondo-tarjeta);
 }
 
 .btn-option.selected {
     background: #f4eee3;
-    color: var(--text-main);
-    border-color: var(--accent-brown);
+    color: var(--texto-principal);
+    border-color: var(--acento-marron);
 }
 
 .actions-row {
@@ -366,7 +363,6 @@ header.header, header.navbar, header.encabezado {
     margin-top: 1.5rem;
 }
 
-/* Tarjeta lateral corporativa en azul fuerte para la exploración guiada y universidades */
 .results-sidebar {
     background-color: #0f1c24;
     color: #ffffff;
@@ -377,7 +373,7 @@ header.header, header.navbar, header.encabezado {
 }
 
 .results-sidebar h3 {
-    font-family: var(--font-serif);
+    font-family: var(--fuente-serif);
     color: #ffffff;
     margin-bottom: 0.75rem;
     font-size: 1.35rem;
@@ -416,8 +412,8 @@ header.header, header.navbar, header.encabezado {
 }
 
 .calc-box {
-    background: var(--bg-surface);
-    border: 1px solid var(--border-color);
+    background: var(--fondo-superficie);
+    border: 1px solid var(--color-borde);
     border-radius: 8px;
     padding: 1.25rem;
     margin-top: 1rem;
@@ -426,11 +422,10 @@ header.header, header.navbar, header.encabezado {
 .calc-result {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--accent-brown);
+    color: var(--acento-marron);
     margin-top: 0.5rem;
 }
 
-/* Pie de página (Footer) fijo abajo */
 footer.footer {
     background-color: #0f1c24;
     color: #ffffff;
@@ -439,7 +434,7 @@ footer.footer {
     justify-content: space-between;
     align-items: center;
     font-size: 0.85rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid var(--color-borde);
     margin-top: auto;
 }
 
