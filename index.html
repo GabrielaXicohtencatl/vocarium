@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="VocariumCompleto.css">
     <style>
-        .btn-option {
+        .boton-opcion {
             width: 100%;
             padding: 12px 16px;
             background-color: #ffffff;
@@ -24,19 +23,19 @@
             outline: none;
         }
 
-        .btn-option:hover {
+        .boton-opcion:hover {
             border-color: #8c6d46;
             background-color: #faf8f5;
         }
 
-        .btn-option.active {
+        .boton-opcion.activo {
             border: 2px solid #8c6d46 !important;
             background-color: #f5efe6 !important;
             color: #0f1c24 !important;
             font-weight: bold;
         }
 
-        .options-grid {
+        .cuadricula-opciones {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
@@ -44,16 +43,16 @@
         }
 
         @media (max-width: 600px) {
-            .options-grid {
+            .cuadricula-opciones {
                 grid-template-columns: 1fr;
             }
         }
 
-        .form-group-dark {
+        .grupo-formulario-oscuro {
             margin-bottom: 1rem;
             text-align: left;
         }
-        .form-group-dark label {
+        .grupo-formulario-oscuro label {
             display: block;
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -62,7 +61,7 @@
             color: #cbd5e1;
             font-weight: 600;
         }
-        .form-group-dark input, .form-group-dark select {
+        .grupo-formulario-oscuro input, .grupo-formulario-oscuro select {
             width: 100%;
             padding: 0.7rem 0.9rem;
             background-color: rgba(255, 255, 255, 0.07);
@@ -73,11 +72,11 @@
             outline: none;
             box-sizing: border-box;
         }
-        .form-group-dark select option {
+        .grupo-formulario-oscuro select option {
             background-color: #0f1c24;
             color: #ffffff;
         }
-        .btn-filter {
+        .boton-filtrar {
             background-color: #8c6d46;
             color: #ffffff;
             border: none;
@@ -90,7 +89,7 @@
             margin-top: 0.5rem;
         }
 
-        .card-dark-investigar {
+        .tarjeta-oscura-investigar {
             background-color: #0f1c24;
             color: #ffffff;
             border-radius: 16px;
@@ -98,31 +97,13 @@
             border: 1px solid #1a2d3d;
         }
 
-        .select-estado-dark {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background-color: rgba(255, 255, 255, 0.06) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
-            border-radius: 8px;
-            color: #ffffff !important;
-            font-size: 0.95rem;
-            outline: none;
-            margin-top: 0.5rem;
-            cursor: pointer;
-        }
-
-        .select-estado-dark option {
-            background-color: #0f1c24 !important;
-            color: #ffffff !important;
-        }
-
-        .uni-list-dark {
+        .lista-uni-oscura {
             list-style: none;
             padding: 0;
             margin-top: 1.5rem;
         }
 
-        .uni-list-dark li {
+        .lista-uni-oscura li {
             padding: 0.8rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
@@ -132,7 +113,7 @@
             justify-content: space-between;
         }
 
-        .uni-list-dark li::before {
+        .lista-uni-oscura li::before {
             content: "•";
             color: #8c6d46;
             font-weight: bold;
@@ -141,68 +122,40 @@
             margin-right: 0.2em;
         }
 
-        .badge-type {
+        .etiqueta-tipo {
             font-size: 0.75rem;
             padding: 2px 8px;
             border-radius: 4px;
             font-weight: 600;
         }
-        .badge-publica { background-color: rgba(46, 125, 50, 0.2); color: #81c784; }
-        .badge-privada { background-color: rgba(156, 39, 176, 0.2); color: #ce93d8; }
+        .etiqueta-publica { background-color: rgba(46, 125, 50, 0.2); color: #81c784; }
+        .etiqueta-privada { background-color: rgba(156, 39, 176, 0.2); color: #ce93d8; }
+        
+        .mensaje-error {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <!-- 1. VISTA AUTENTICACIÓN -->
-    <section id="view-auth" class="section-wrapper">
+    <section id="vista-portada" class="section-wrapper">
         <header class="header">
             <div class="header-logo">Vocarium</div>
-            <div class="header-nav" id="auth-nav-title">ACCESO</div>
+            <div class="header-nav">PORTADA</div>
         </header>
         <main class="container-centered container-split">
             <div>
-                <p class="subtitle">TU BRÚJULA VOCACIONAL</p>
-                <h1 class="main-title">Descubre tu camino profesional</h1>
-                <p class="description">Conócete mejor y explora opciones académicas adaptadas a tu perfil e intereses.</p>
+                <p class="subtitle">VOCARIUM - TU BRÚJULA VOCACIONAL</p>
+                <h1 class="main-title">Sistema Integral de Orientación Profesional</h1>
+                <p class="description">Bienvenido a nuestra plataforma institucional de asesoría vocacional y selección universitaria en México.</p>
                 
-                <div class="card" id="card-login">
-                    <h2 style="margin-bottom: 1rem;">Bienvenida de vuelta</h2>
-                    <form id="form-login">
-                        <div class="form-group">
-                            <label for="login-email">Correo electrónico</label>
-                            <input type="email" id="login-email" placeholder="nombre@correo.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="login-pass">Contraseña</label>
-                            <input type="password" id="login-pass" placeholder="••••••••" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Iniciar sesión</button>
-                    </form>
-                    <div class="card-links">
-                        <a href="#" id="link-to-register">¿No tienes cuenta? Regístrate</a>
-                    </div>
-                </div>
-
-                <div class="card hidden" id="card-register">
-                    <h2 style="margin-bottom: 1rem;">Crear una cuenta</h2>
-                    <form id="form-register">
-                        <div class="form-group">
-                            <label for="reg-name">Nombre completo</label>
-                            <input type="text" id="reg-name" placeholder="Ej. Ana García" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-email">Correo electrónico</label>
-                            <input type="email" id="reg-email" placeholder="nombre@correo.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="reg-pass">Contraseña</label>
-                            <input type="password" id="reg-pass" placeholder="Mínimo 6 caracteres" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Registrarse</button>
-                    </form>
-                    <div class="card-links">
-                        <a href="#" id="link-to-login">¿Ya tienes cuenta? Inicia sesión</a>
-                    </div>
+                <div class="card">
+                    <h2 style="margin-bottom: 1rem;">Acceso al Sistema</h2>
+                    <p class="description" style="margin-bottom: 1rem;">El sistema se encuentra en modalidad de evaluación abierta. Haz clic en el botón para ingresar directamente a la plataforma.</p>
+                    <button type="button" class="btn btn-primary" id="boton-ingresar-portada" style="width: 100%;">Iniciar Sesión / Entrar</button>
                 </div>
             </div>
 
@@ -211,8 +164,8 @@
                     <circle cx="12" cy="12" r="9"></circle>
                     <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
                 </svg>
-                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.75rem;">Tu camino comienza aquí</h3>
-                <p class="description" style="color: #a0aec0; margin-bottom: 0;">Orienta tus decisiones con base en tus fortalezas reales.</p>
+                <h3 style="font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 0.75rem;">Tu futuro universitario</h3>
+                <p class="description" style="color: #a0aec0; margin-bottom: 0;">Herramientas avanzadas de simulación y evaluación vocacional.</p>
             </div>
         </main>
         
@@ -222,16 +175,15 @@
         </footer>
     </section>
 
-    <!-- 2. NUEVA VISTA CONÓCENOS / BIENVENIDA (Inmediatamente después del acceso) -->
-    <section id="view-welcome" class="section-wrapper hidden">
+    <section id="vista-conocenos" class="section-wrapper hidden">
         <header class="header">
             <div class="header-logo">Vocarium</div>
-            <div class="header-nav">CONÓCENOS</div>
+            <div class="header-nav">ACERCA DE VOCARIUM</div>
         </header>
 
         <main class="container-centered container-split">
             <div>
-                <p class="subtitle">ACERCA DE VOCARIUM</p>
+                <p class="subtitle">CONÓCENOS</p>
                 <h1 class="main-title">Orientación vocacional estratégica para tu futuro</h1>
                 <p class="description">Vocarium es una plataforma diseñada para guiar a los estudiantes en la toma de decisiones académicas y profesionales. Combinamos la evaluación de competencias individuales con una amplia base de datos sobre la oferta superior en México.</p>
                 
@@ -240,13 +192,13 @@
                     <p style="font-size: 0.95rem; color: var(--text-main);">Empoderar a los jóvenes para elegir carreras alineadas con su verdadera vocación, optimizando su preparación y maximizando sus oportunidades de admisión.</p>
                 </div>
 
-                <button type="button" class="btn btn-primary" id="btn-start-platform" style="padding: 0.9rem 2rem;">Ingresar al Menú de Servicios &rarr;</button>
+                <button type="button" class="btn btn-primary" id="boton-iniciar-menu" style="padding: 0.9rem 2rem;">Ingresar al Menú de Servicios &rarr;</button>
             </div>
 
             <div style="display: grid; gap: 1rem;">
                 <div class="card" style="border-left: 4px solid #8c6d46;">
                     <h4>1. Test Vocacional Inteligente</h4>
-                    <p class="description" style="margin-bottom: 0; font-size: 0.85rem;">Evalúa tus afinidades analíticas, creativas, sociales y directivas.</p>
+                    <p class="description" style="margin-bottom: 0; font-size: 0.85rem;">Evalúa tus afinidades analíticas, creativas, sociales, jurídicas y directivas.</p>
                 </div>
                 <div class="card" style="border-left: 4px solid #8c6d46;">
                     <h4>2. Oferta Pública y Privada</h4>
@@ -265,18 +217,18 @@
         </footer>
     </section>
 
-    <!-- 3. VISTA DASHBOARD -->
-    <section id="view-dashboard" class="section-wrapper hidden">
+    <section id="vista-menu" class="section-wrapper hidden">
         <header class="header">
-            <div class="header-logo" id="dash-logo-btn">Vocarium</div>
+            <div class="header-logo" id="logo-menu">Vocarium</div>
             <div class="header-nav">MENÚ DE SERVICIOS</div>
         </header>
 
         <nav class="sub-navbar">
-            <button class="nav-item active" data-target="dashboard">Inicio</button>
-            <button class="nav-item" data-target="test">Test Vocacional</button>
-            <button class="nav-item" data-target="results">Universidades</button>
-            <button class="nav-item" data-target="route">Mi Ruta / Simulador</button>
+            <button class="nav-item active" data-destino="menu">Inicio</button>
+            <button class="nav-item" data-destino="test">Test Vocacional</button>
+            <button class="nav-item" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
         </nav>
 
         <main class="container-centered" style="flex-direction: column; align-items: stretch;">
@@ -286,7 +238,7 @@
             </div>
             
             <div class="option-cards">
-                <div class="option-card" id="opt-start-test">
+                <div class="option-card" id="tarjeta-ir-test">
                     <div class="card-badge">1</div>
                     <div class="card-info">
                         <h3>Explora y construye tu perfil</h3>
@@ -295,20 +247,20 @@
                     <div>&rarr;</div>
                 </div>
 
-                <div class="option-card" id="opt-universities">
+                <div class="option-card" id="tarjeta-ir-buscador">
                     <div class="card-badge">2</div>
                     <div class="card-info">
                         <h3>Explora universidades y oferta superior</h3>
-                        <p>Filtra universidades públicas y privadas por región, estado y presupuesto.</p>
+                        <p>Filtra universidades públicas y privadas con nuestro formulario avanzado.</p>
                     </div>
                     <div>&rarr;</div>
                 </div>
 
-                <div class="option-card" id="opt-my-route">
+                <div class="option-card" id="tarjeta-ir-simulador">
                     <div class="card-badge">3</div>
                     <div class="card-info">
                         <h3>Mi Ruta y Calculadora de Admisión</h3>
-                        <p>Simula tu puntaje ponderado de admisión a la universidad.</p>
+                        <p>Simula tu puntaje ponderado de admisión y conoce su importancia.</p>
                     </div>
                     <div>&rarr;</div>
                 </div>
@@ -321,129 +273,148 @@
         </footer>
     </section>
 
-    <!-- 4. VISTA TEST VOCACIONAL (Expandido a 8 preguntas) -->
-    <section id="view-test" class="section-wrapper hidden">
+    <section id="vista-test" class="section-wrapper hidden">
         <header class="header">
             <div class="header-logo">Vocarium</div>
             <div class="header-nav">TEST VOCACIONAL</div>
         </header>
 
         <nav class="sub-navbar">
-            <button class="nav-item" data-target="dashboard">Inicio</button>
-            <button class="nav-item active" data-target="test">Test Vocacional</button>
-            <button class="nav-item" data-target="results">Universidades</button>
-            <button class="nav-item" data-target="route">Mi Ruta / Simulador</button>
+            <button class="nav-item" data-destino="menu">Inicio</button>
+            <button class="nav-item active" data-destino="test">Test Vocacional</button>
+            <button class="nav-item" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
         </nav>
 
         <main class="container-centered container-split">
             <div>
                 <div class="progreso-container" style="margin-bottom: 20px;">
-                    <span class="progreso-text" id="step-indicator">Paso 1 de 4</span>
+                    <span class="progreso-text" id="texto-progreso">Paso 1 de 5</span>
                     <div class="barra-bg" style="height: 6px; background: #e2dcd5; border-radius: 3px; margin-top: 5px;">
-                        <div class="barra-fill" id="barra-progreso" style="width: 25%; height: 100%; background: #8c6d46; border-radius: 3px; transition: width 0.3s;"></div>
+                        <div class="barra-fill" id="barra-progreso" style="width: 20%; height: 100%; background: #8c6d46; border-radius: 3px; transition: width 0.3s;"></div>
                     </div>
                 </div>
 
-                <form id="form-test" onsubmit="return false;">
-                    <!-- Paso 1 -->
-                    <div class="test-step" id="step-1">
+                <form id="formulario-test" onsubmit="return false;">
+                    <div class="test-step" id="paso-test-1">
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 1 DE 8</span>
+                            <span class="subtitle">PREGUNTA 1 DE 10</span>
                             <h3>¿Qué tipo de actividades disfrutas realizar más en tu tiempo libre?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="1" data-val="I">Construir o reparar objetos mecánicos/electrónicos</button>
-                                <button type="button" class="btn-option" data-q="1" data-val="A">Diseñar contenido visual, escribir o pintar</button>
-                                <button type="button" class="btn-option" data-q="1" data-val="S">Aconsejar, colaborar o enseñar a otros</button>
-                                <button type="button" class="btn-option" data-q="1" data-val="C">Organizar archivos, datos o esquemas</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="1" data-valor="I">Construir o reparar objetos mecánicos/electrónicos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="1" data-valor="A">Diseñar contenido visual, escribir o pintar</button>
+                                <button type="button" class="boton-opcion" data-pregunta="1" data-valor="S">Aconsejar, colaborar o enseñar a otros</button>
+                                <button type="button" class="boton-opcion" data-pregunta="1" data-valor="C">Organizar archivos, datos o esquemas</button>
                             </div>
                         </div>
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 2 DE 8</span>
+                            <span class="subtitle">PREGUNTA 2 DE 10</span>
                             <h3>¿Cuál de las siguientes áreas despierta mayor curiosidad en ti?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="2" data-val="I">Ciencia, investigación e informática</button>
-                                <button type="button" class="btn-option" data-q="2" data-val="S">Salud, psicología y bien social</button>
-                                <button type="button" class="btn-option" data-q="2" data-val="E">Liderazgo, finanzas y emprendimiento</button>
-                                <button type="button" class="btn-option" data-q="2" data-val="A">Artes performativas, arquitectura y letras</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="2" data-valor="I">Ciencia, investigación e informática</button>
+                                <button type="button" class="boton-opcion" data-pregunta="2" data-valor="S">Salud, psicología y bien social</button>
+                                <button type="button" class="boton-opcion" data-pregunta="2" data-valor="E">Liderazgo, finanzas y emprendimiento</button>
+                                <button type="button" class="boton-opcion" data-pregunta="2" data-valor="J">Leyes, justicia y normatividad social</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Paso 2 -->
-                    <div class="test-step hidden" id="step-2">
+                    <div class="test-step hidden" id="paso-test-2">
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 3 DE 8</span>
+                            <span class="subtitle">PREGUNTA 3 DE 10</span>
                             <h3>¿Cuál dirías que es tu mayor fortaleza personal?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="3" data-val="I">Razonamiento lógico y analítico</button>
-                                <button type="button" class="btn-option" data-q="3" data-val="A">Pensamiento creativo e innovación</button>
-                                <button type="button" class="btn-option" data-q="3" data-val="S">Empatía y escucha activa</button>
-                                <button type="button" class="btn-option" data-q="3" data-val="E">Capacidad de persuasión y negociación</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="3" data-valor="I">Razonamiento lógico y analítico</button>
+                                <button type="button" class="boton-opcion" data-pregunta="3" data-valor="A">Pensamiento creativo e innovación</button>
+                                <button type="button" class="boton-opcion" data-pregunta="3" data-valor="J">Argumentación, defensa de causas y elocuencia</button>
+                                <button type="button" class="boton-opcion" data-pregunta="3" data-valor="E">Capacidad de persuasión y negociación</button>
                             </div>
                         </div>
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 4 DE 8</span>
+                            <span class="subtitle">PREGUNTA 4 DE 10</span>
                             <h3>¿En qué entorno de trabajo te sentirías más cómodo?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="4" data-val="I">Un laboratorio o centro de cómputo</button>
-                                <button type="button" class="btn-option" data-q="4" data-val="S">Trabajo comunitario o en contacto constante con personas</button>
-                                <button type="button" class="btn-option" data-q="4" data-val="E">En corporativos, gestionando proyectos u oficinas</button>
-                                <button type="button" class="btn-option" data-q="4" data-val="A">Estudio creativo o taller independiente</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="4" data-valor="I">Un laboratorio o centro de cómputo</button>
+                                <button type="button" class="boton-opcion" data-pregunta="4" data-valor="S">Trabajo comunitario o en contacto constante con personas</button>
+                                <button type="button" class="boton-opcion" data-pregunta="4" data-valor="J">Tribunales, despachos jurídicos o notarías</button>
+                                <button type="button" class="boton-opcion" data-pregunta="4" data-valor="A">Estudio creativo o taller independiente</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Paso 3 -->
-                    <div class="test-step hidden" id="step-3">
+                    <div class="test-step hidden" id="paso-test-3">
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 5 DE 8</span>
+                            <span class="subtitle">PREGUNTA 5 DE 10</span>
                             <h3>¿Qué impacto principal deseas generar profesionalmente?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="5" data-val="I">Desarrollar soluciones tecnológicas avanzadas</button>
-                                <button type="button" class="btn-option" data-q="5" data-val="S">Mejorar la calidad de vida de grupos vulnerables</button>
-                                <button type="button" class="btn-option" data-q="5" data-val="E">Crear empresas sostenibles y generar empleos</button>
-                                <button type="button" class="btn-option" data-q="5" data-val="A">Expresar ideas culturales e inspirar a la sociedad</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="5" data-valor="I">Desarrollar soluciones tecnológicas avanzadas</button>
+                                <button type="button" class="boton-opcion" data-pregunta="5" data-valor="S">Mejorar la calidad de vida de grupos vulnerables</button>
+                                <button type="button" class="boton-opcion" data-pregunta="5" data-valor="J">Garantizar la equidad, contratos justos y el estado de derecho</button>
+                                <button type="button" class="boton-opcion" data-pregunta="5" data-valor="A">Expresar ideas culturales e inspirar a la sociedad</button>
                             </div>
                         </div>
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 6 DE 8</span>
+                            <span class="subtitle">PREGUNTA 6 DE 10</span>
                             <h3>¿Qué tipo de problemas te motiva más resolver?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="6" data-val="I">Desafíos matemáticos, algorítmicos o técnicos complejos</button>
-                                <button type="button" class="btn-option" data-q="6" data-val="C">Fallas operativas, de control de calidad y logística</button>
-                                <button type="button" class="btn-option" data-q="6" data-val="E">Conflictos comerciales, toma de decisiones y ventas</button>
-                                <button type="button" class="btn-option" data-q="6" data-val="S">Problemáticas emocionales, comunitarias o educativas</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="6" data-valor="I">Desafíos matemáticos, algorítmicos o técnicos complejos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="6" data-valor="J">Controversias legales, interpretación de códigos y litigios</button>
+                                <button type="button" class="boton-opcion" data-pregunta="6" data-valor="E">Conflictos comerciales, toma de decisiones y ventas</button>
+                                <button type="button" class="boton-opcion" data-pregunta="6" data-valor="S">Problemáticas emocionales, comunitarias o educativas</button>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Paso 4 -->
-                    <div class="test-step hidden" id="step-4">
+                    <div class="test-step hidden" id="paso-test-4">
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 7 DE 8</span>
+                            <span class="subtitle">PREGUNTA 7 DE 10</span>
                             <h3>¿Qué herramienta te resulta más fascinante utilizar diariamente?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="7" data-val="I">Lenguajes de programación, software de simulación o datos</button>
-                                <button type="button" class="btn-option" data-q="7" data-val="A">Edición gráfica, cámaras, instrumentos musicales o bocetos</button>
-                                <button type="button" class="btn-option" data-q="7" data-val="E">Plataformas de gestión de proyectos, métricas financieras y CRM</button>
-                                <button type="button" class="btn-option" data-q="7" data-val="S">Dinámicas grupales, material didáctico e investigación social</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="7" data-valor="I">Lenguajes de programación, software de simulación o datos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="7" data-valor="A">Edición gráfica, cámaras, instrumentos musicales o bocetos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="7" data-valor="J">Códigos civiles, constituciones y expedientes normativos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="7" data-valor="S">Dinámicas grupales, material didáctico e investigación social</button>
                             </div>
                         </div>
                         <div class="question-card">
-                            <span class="subtitle">PREGUNTA 8 DE 8</span>
+                            <span class="subtitle">PREGUNTA 8 DE 10</span>
                             <h3>¿Cómo te gustaría ser reconocido en tu área profesional?</h3>
-                            <div class="options-grid">
-                                <button type="button" class="btn-option" data-q="8" data-val="I">Por innovar tecnológicamente o aportar nuevo conocimiento científico</button>
-                                <button type="button" class="btn-option" data-q="8" data-val="A">Por el estilo original y sensibilidad estética de tus obras o diseños</button>
-                                <button type="button" class="btn-option" data-q="8" data-val="E">Por dirigir organizaciones exitosas y emprendimientos de alto impacto</button>
-                                <button type="button" class="btn-option" data-q="8" data-val="S">Por la vocación de servicio y huella positiva en la comunidad</button>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="8" data-valor="I">Por innovar tecnológicamente o aportar nuevo conocimiento científico</button>
+                                <button type="button" class="boton-opcion" data-pregunta="8" data-valor="J">Por impartir justicia imparcial y defender los derechos humanos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="8" data-valor="E">Por dirigir organizaciones exitosas y emprendimientos de alto impacto</button>
+                                <button type="button" class="boton-opcion" data-pregunta="8" data-valor="S">Por la vocación de servicio y huella positiva en la comunidad</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="test-step hidden" id="paso-test-5">
+                        <div class="question-card">
+                            <span class="subtitle">PREGUNTA 9 DE 10</span>
+                            <h3>¿Qué tipo de lectura prefieres en tu día a día?</h3>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="9" data-valor="I">Artículos científicos y manuales técnicos</button>
+                                <button type="button" class="boton-opcion" data-pregunta="9" data-valor="J">Leyes, jurisprudencia y casos de estudio legales</button>
+                                <button type="button" class="boton-opcion" data-pregunta="9" data-valor="A">Novelas, ensayos literarios o revistas de diseño</button>
+                                <button type="button" class="boton-opcion" data-pregunta="9" data-valor="E">Libros de economía, liderazgo y finanzas corporativas</button>
+                            </div>
+                        </div>
+                        <div class="question-card">
+                            <span class="subtitle">PREGUNTA 10 DE 10</span>
+                            <h3>¿Cuál es tu enfoque ideal para mediar un desacuerdo?</h3>
+                            <div class="cuadricula-opciones">
+                                <button type="button" class="boton-opcion" data-pregunta="10" data-valor="J">Apegándose estrictamente a la normatividad y acuerdos vigentes</button>
+                                <button type="button" class="boton-opcion" data-pregunta="10" data-valor="S">Buscando la conciliación empática y el entendimiento mutuo</button>
+                                <button type="button" class="boton-opcion" data-pregunta="10" data-valor="E">Negociando intereses comerciales para un beneficio mutuo</button>
+                                <button type="button" class="boton-opcion" data-pregunta="10" data-valor="I">Analizando los datos cuantitativos del problema de forma objetiva</button>
                             </div>
                         </div>
                     </div>
 
                     <div class="actions-row">
-                        <button type="button" class="btn btn-secondary" id="btn-prev-step" style="visibility: hidden;">Anterior</button>
-                        <button type="button" class="btn btn-primary" id="btn-next-step">Siguiente &rarr;</button>
+                        <button type="button" class="btn btn-secondary" id="boton-anterior-paso" style="visibility: hidden;">Anterior</button>
+                        <button type="button" class="btn btn-primary" id="boton-siguiente-paso">Siguiente &rarr;</button>
                     </div>
                 </form>
             </div>
@@ -451,7 +422,7 @@
             <div class="results-sidebar">
                 <span class="subtitle">EXPLORACIÓN GUIADA</span>
                 <h3 style="margin-top: 0.5rem; color: #fff;">Cuestionario Vocacional</h3>
-                <p class="description" style="color: #cbd5e1;">Responde las preguntas por bloques para ir perfilando las áreas científicas, artísticas, sociales o técnicas que mejor encajan contigo.</p>
+                <p class="description" style="color: #cbd5e1;">Responde las preguntas para perfilar áreas científicas, artísticas, sociales, jurídicas o empresariales.</p>
             </div>
         </main>
 
@@ -461,107 +432,161 @@
         </footer>
     </section>
 
-    <!-- 5. VISTA RESULTADOS & BÚSQUEDA DE UNIVERSIDADES -->
-    <section id="view-results" class="section-wrapper hidden">
+    <section id="vista-resultados" class="section-wrapper hidden">
         <header class="header">
-            <div class="header-logo" id="res-logo-btn">Vocarium</div>
-            <div class="header-nav">UNIVERSIDADES Y OFERTA</div>
+            <div class="header-logo" id="logo-resultados">Vocarium</div>
+            <div class="header-nav">RESULTADOS</div>
         </header>
 
         <nav class="sub-navbar">
-            <button class="nav-item" data-target="dashboard">Inicio</button>
-            <button class="nav-item" data-target="test">Test Vocacional</button>
-            <button class="nav-item active" data-target="results">Universidades</button>
-            <button class="nav-item" data-target="route">Mi Ruta / Simulador</button>
+            <button class="nav-item" data-destino="menu">Inicio</button>
+            <button class="nav-item" data-destino="test">Test Vocacional</button>
+            <button class="nav-item active" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
         </nav>
 
-        <main class="container-centered container-split" id="main-results-layout">
+        <main class="container-centered" style="flex-direction: column; align-items: stretch; max-width: 900px;">
             <div>
-                <p class="subtitle">PERFIL OBTENIDO</p>
-                <h1 class="main-title" id="res-area-title">Perfil Social y Humanístico</h1>
-                <p class="description" id="res-area-desc">Sobresales en la empatía, la enseñanza, la atención médica o la asistencia comunitaria.</p>
+                <p class="subtitle">PERFIL VOCACIONAL OBTENIDO</p>
+                <h1 class="main-title" id="titulo-area-resultado">Perfil Social y Humanístico</h1>
+                <p class="description" id="descripcion-area-resultado" style="font-size: 1.1rem;">Sobresales en la empatía, la enseñanza, la atención médica o la asistencia comunitaria.</p>
 
-                <div class="card" style="margin-bottom: 1.5rem;">
+                <div class="card" style="margin-bottom: 2rem;">
                     <h3>Carreras recomendadas para tu perfil</h3>
-                    <p style="font-size: 1.2rem; font-weight: 700; color: var(--accent-brown); margin: 0.5rem 0;" id="res-career-title">Psicología / Enfermería / Trabajo Social / Pedagogía</p>
-                    <p class="description" id="res-career-compat">Afinidad calculada según tus respuestas del test.</p>
+                    <p style="font-size: 1.3rem; font-weight: 700; color: var(--accent-brown); margin: 0.5rem 0;" id="titulo-carrera-resultado">Psicología / Enfermería / Trabajo Social / Pedagogía</p>
+                    <p class="description" id="compatibilidad-resultado" style="margin-bottom: 0;">Análisis detallado de afinidad obtenido a partir de tus respuestas institucionales.</p>
                 </div>
 
-                <div class="actions-row">
-                    <button type="button" class="btn btn-secondary" id="btn-repeat-test">Repetir Test</button>
-                    <button type="button" class="btn btn-primary" id="btn-go-route">Ir al Simulador</button>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-secondary" id="boton-repetir-test" style="flex: 1;">Repetir Test</button>
+                    <button type="button" class="btn btn-primary" id="boton-ir-buscador-desde-resultados" style="flex: 1;">Ir al Formulario de Universidades &rarr;</button>
+                    <button type="button" class="btn btn-primary" id="boton-ir-simulador-desde-resultados" style="flex: 1;">Ir al Simulador &rarr;</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-credits">Desarrollado por Cruz George Carolina, Martínez Xicohténcatl Gabriela Sofía y Sánchez Briones Cynthia</div>
+            <div class="footer-info">111 111 111</div>
+        </footer>
+    </section>
+
+    <section id="vista-formulario-universidades" class="section-wrapper hidden">
+        <header class="header">
+            <div class="header-logo" id="logo-formulario">Vocarium</div>
+            <div class="header-nav">BUSCADOR UNIVERSITARIO</div>
+        </header>
+
+        <nav class="sub-navbar">
+            <button class="nav-item" data-destino="menu">Inicio</button>
+            <button class="nav-item" data-destino="test">Test Vocacional</button>
+            <button class="nav-item" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item active" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
+        </nav>
+
+        <main class="container-centered container-split">
+            <div>
+                <p class="subtitle">FILTRADO DE INSTITUCIONES</p>
+                <h1 class="main-title">Formulario Avanzado de Selección</h1>
+                <p class="description">Utiliza este formulario validado para encontrar las opciones académicas ideales según tus criterios específicos de ubicación, presupuesto y tipo de institución.</p>
+                <div class="card" style="background-color: #0f1c24; color: #ffffff; border: 1px solid #1a2d3d;">
+                    <h3 style="color: #8c6d46; margin-bottom: 0.5rem;">Criterios de Validación</h3>
+                    <p class="description" style="color: #cbd5e1; font-size: 0.9rem; margin-bottom: 0;">El campo de correo requiere formato institucional válido (ejemplo@correo.com) y el presupuesto mensual debe ser un valor numérico mayor a $500 pesos.</p>
                 </div>
             </div>
 
-            <!-- Filtros de Universidades Mejorados (Regiones + Públicas y Privadas) -->
             <div class="results-sidebar">
-                <span class="subtitle">FILTRADO DE INSTITUCIONES</span>
-                <h3 style="margin-top: 0.5rem; margin-bottom: 1rem;">Encuentra tu Universidad</h3>
+                <span class="subtitle">FORMULARIO INSTITUCIONAL</span>
+                <h3 style="margin-top: 0.5rem; margin-bottom: 1rem;">Parámetros de Búsqueda</h3>
                 
-                <form id="form-filtro-universidades">
-                    <div class="form-group-dark">
-                        <label for="filtro-modalidad">Modalidad de Estudio</label>
-                        <select id="filtro-modalidad" required>
-                            <option value="Presencial">Presencial</option>
-                            <option value="En línea">En línea</option>
-                            <option value="Mixta">Mixta / Híbrida</option>
+                <form id="formulario-filtros-avanzado" novalidate>
+                    <div class="grupo-formulario-oscuro">
+                        <label for="campo-correo-aspirante">Correo de Contacto (Validación de formato)</label>
+                        <input type="text" id="campo-correo-aspirante" placeholder="nombre@correo.com" required>
+                        <span id="error-correo" class="mensaje-error hidden">Por favor ingresa un correo electrónico válido (ej. usuario@dominio.com).</span>
+                    </div>
+
+                    <div class="grupo-formulario-oscuro">
+                        <label for="campo-presupuesto">Presupuesto Mensual Mínimo ($ MXN) [Validación > $500]</label>
+                        <input type="number" id="campo-presupuesto" placeholder="Ej. 2500" required>
+                        <span id="error-presupuesto" class="mensaje-error hidden">El presupuesto debe ser un número válido mayor a $500 MXN.</span>
+                    </div>
+
+                    <div class="grupo-formulario-oscuro">
+                        <label>Tipo de Institución (Casilla de verificación)</label>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+                            <label style="font-weight: normal; font-size: 0.85rem; cursor: pointer;"><input type="checkbox" id="check-publica" checked> Pública</label>
+                            <label style="font-weight: normal; font-size: 0.85rem; cursor: pointer;"><input type="checkbox" id="check-privada" checked> Privada</label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-formulario-oscuro">
+                        <label>Modalidad de Estudio (Botones Radio)</label>
+                        <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+                            <label style="font-weight: normal; font-size: 0.85rem; cursor: pointer;"><input type="radio" name="radio-modalidad" value="Presencial" checked> Presencial</label>
+                            <label style="font-weight: normal; font-size: 0.85rem; cursor: pointer;"><input type="radio" name="radio-modalidad" value="En línea"> En línea</label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-formulario-oscuro">
+                        <label for="lista-region">Selecciona tu Región</label>
+                        <select id="lista-region" required>
+                            <option value="Centro">Región Centro (CDMX, Edomex, Puebla, Tlaxcala, etc.)</option>
+                            <option value="Norte">Región Norte (Nuevo León, Chihuahua, etc.)</option>
+                            <option value="Occidente">Región Occidente (Jalisco, Guanajuato, etc.)</option>
+                            <option value="Sur-Sureste">Región Sur / Sureste (Veracruz, Oaxaca, Yucatán, etc.)</option>
                         </select>
                     </div>
 
-                    <div class="form-group-dark">
-                        <label for="filtro-turno">Turno Escolar</label>
-                        <select id="filtro-turno" required>
-                            <option value="Matutino">Matutino</option>
-                            <option value="Vespertino">Vespertino</option>
-                            <option value="Mixto">Mixto / Flexible</option>
+                    <div class="grupo-formulario-oscuro">
+                        <label for="lista-estado">Selecciona el Estado</label>
+                        <select id="lista-estado" required>
                         </select>
                     </div>
 
-                    <div class="form-group-dark">
-                        <label for="filtro-presupuesto">Presupuesto Mensual Estimado ($ MXN)</label>
-                        <input type="number" id="filtro-presupuesto" placeholder="Ej. 1500 (Pública) ó 8000 (Privada)" required>
-                    </div>
-
-                    <div class="form-group-dark">
-                        <label for="filtro-region-select">1. Selecciona tu Región</label>
-                        <select id="filtro-region-select" required>
-                            <option value="Centro">Región Centro (CDMX, Edomex, Puebla, Tlaxcala, Hidalgo, Morelos)</option>
-                            <option value="Norte">Región Norte (Nuevo León, Chihuahua, Coahuila, Sonora, etc.)</option>
-                            <option value="Occidente">Región Occidente (Jalisco, Michoacán, Guanajuato, etc.)</option>
-                            <option value="Sur-Sureste">Región Sur / Sureste (Veracruz, Oaxaca, Chiapas, Yucatán, etc.)</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group-dark">
-                        <label for="filtro-estado-select">2. Selecciona el Estado</label>
-                        <select id="filtro-estado-select" required>
-                            <!-- Opciones cargadas dinámicamente según la región -->
-                        </select>
-                    </div>
-
-                    <button type="submit" class="btn-filter">Buscar Universidades Óptimas</button>
+                    <button type="submit" class="boton-filtrar">Ejecutar Búsqueda Validada</button>
                 </form>
             </div>
         </main>
 
-        <!-- Página de Resultados de Búsqueda de Universidades -->
-        <main class="container-centered container-split hidden" id="view-uni-results-page">
+        <footer class="footer">
+            <div class="footer-credits">Desarrollado por Cruz George Carolina, Martínez Xicohténcatl Gabriela Sofía y Sánchez Briones Cynthia</div>
+            <div class="footer-info">111 111 111</div>
+        </footer>
+    </section>
+
+    <section id="vista-resultados-universidades" class="section-wrapper hidden">
+        <header class="header">
+            <div class="header-logo">Vocarium</div>
+            <div class="header-nav">RESULTADOS DE BÚSQUEDA</div>
+        </header>
+
+        <nav class="sub-navbar">
+            <button class="nav-item" data-destino="menu">Inicio</button>
+            <button class="nav-item" data-destino="test">Test Vocacional</button>
+            <button class="nav-item" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item active" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item" data-destino="simulador">Simulador y Promedio</button>
+        </nav>
+
+        <main class="container-centered container-split">
             <div>
                 <p class="subtitle">OFERTA ACADÉMICA ENCONTRADA</p>
-                <h1 class="main-title">Opciones Académicas Recomendadas</h1>
-                <p class="description" id="applied-filters-text" style="margin-bottom: 1.5rem;"></p>
+                <h1 class="main-title">Instituciones Recomendadas</h1>
+                <p class="description" id="texto-filtros-aplicados" style="margin-bottom: 1.5rem;"></p>
 
                 <div class="actions-row">
-                    <button type="button" class="btn btn-secondary" id="btn-back-to-form">&larr; Modificar Filtros</button>
+                    <button type="button" class="btn btn-secondary" id="boton-regresar-formulario">&larr; Modificar Formulario</button>
                 </div>
             </div>
 
-            <div class="card-dark-investigar">
+            <div class="tarjeta-oscura-investigar">
                 <span class="subtitle" style="color: #8c6d46; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.75rem; font-weight: bold;">RESULTADOS</span>
-                <h2 style="font-family: 'Lora', serif; font-size: 1.6rem; margin-top: 0.4rem; margin-bottom: 1.2rem; font-weight: normal; color: #ffffff;" id="title-estado-resultados">Universidades disponibles</h2>
+                <h2 style="font-family: 'Lora', serif; font-size: 1.6rem; margin-top: 0.4rem; margin-bottom: 1.2rem; font-weight: normal; color: #ffffff;" id="titulo-estado-resultados">Universidades disponibles</h2>
                 
-                <ul class="uni-list-dark" id="lista-universidades-estado">
-                    <!-- Se llena dinámicamente incluyendo públicas y privadas según presupuesto -->
+                <ul class="lista-uni-oscura" id="lista-universidades-encontradas">
                 </ul>
             </div>
         </main>
@@ -572,41 +597,45 @@
         </footer>
     </section>
 
-    <!-- 6. VISTA MI RUTA / SIMULADOR -->
-    <section id="view-route" class="section-wrapper hidden">
+    <section id="vista-simulador" class="section-wrapper hidden">
         <header class="header">
-            <div class="header-logo" id="route-logo-btn">Vocarium</div>
-            <div class="header-nav">MI RUTA</div>
+            <div class="header-logo" id="logo-simulador">Vocarium</div>
+            <div class="header-nav">SIMULADOR Y PROMEDIO</div>
         </header>
 
         <nav class="sub-navbar">
-            <button class="nav-item" data-target="dashboard">Inicio</button>
-            <button class="nav-item" data-target="test">Test Vocacional</button>
-            <button class="nav-item" data-target="results">Universidades</button>
-            <button class="nav-item active" data-target="route">Mi Ruta / Simulador</button>
+            <button class="nav-item" data-destino="menu">Inicio</button>
+            <button class="nav-item" data-destino="test">Test Vocacional</button>
+            <button class="nav-item" data-destino="resultados">Resultados y Perfil</button>
+            <button class="nav-item" data-destino="formulario-universidades">Buscador Universitario</button>
+            <button class="nav-item active" data-destino="simulador">Simulador y Promedio</button>
         </nav>
 
-        <main class="container-centered" style="flex-direction: column; align-items: stretch; max-width: 800px;">
-            <p class="subtitle">SEGUIMIENTO DE ADMISIÓN</p>
-            <h1 class="main-title">Simulador de Puntaje Ponderado</h1>
-            <p class="description">Muchas universidades públicas utilizan promedios ponderados para asignar lugares en carreras demandadas. Modifica tus valores para proyectar tu resultado.</p>
+        <main class="container-centered container-split">
+            <div>
+                <p class="subtitle">SEGUIMIENTO DE ADMISIÓN</p>
+                <h1 class="main-title">¿Por qué es importante conocer tu Promedio Ponderado?</h1>
+                <p class="description">En instituciones públicas de alta demanda como la <strong>UAM (Universidad Autónoma Metropolitana)</strong>, el IPN o la UNAM, el ingreso no depende únicamente del examen de admisión. Se utiliza un sistema de ponderación donde el promedio de bachillerato (generalmente un 40% a 50%) se combina con el puntaje obtenido en la evaluación de conocimientos (el porcentaje restante).</p>
+                <p class="description">Conocer y simular esta ponderación te permite anticipar si tu promedio actual es competitivo para la carrera y universidad de tu elección.</p>
+            </div>
 
             <div class="card">
-                <form id="form-calc" novalidate>
+                <h3 style="margin-bottom: 1rem;">Calculadora de Puntaje Ponderado</h3>
+                <form id="formulario-calculadora" novalidate>
                     <div class="form-group">
-                        <label for="calc-promedio">Promedio General de Bachillerato (0 - 10):</label>
-                        <input type="number" id="calc-promedio" min="0" max="10" step="0.1" value="8.5">
+                        <label for="campo-promedio">Promedio General de Bachillerato (0 - 10):</label>
+                        <input type="number" id="campo-promedio" min="0" max="10" step="0.1" value="8.5" required>
                     </div>
                     <div class="form-group">
-                        <label for="calc-examen">Puntaje estimado en Examen de Admisión (0 - 100 pts):</label>
-                        <input type="number" id="calc-examen" min="0" max="100" step="1" value="80">
+                        <label for="campo-examen">Puntaje estimado en Examen de Admisión (0 - 100 pts):</label>
+                        <input type="number" id="campo-examen" min="0" max="100" step="1" value="80" required>
                     </div>
-                    <button type="button" class="btn btn-primary" id="btn-calcular">Calcular Puntaje Final</button>
+                    <button type="button" class="btn btn-primary" id="boton-calcular-puntaje" style="width: 100%;">Calcular Puntaje Final</button>
                 </form>
 
                 <div class="calc-box">
                     <p class="subtitle">RESULTADO CALCULADO</p>
-                    <div class="calc-result" id="calc-output">Puntaje Ponderado: 82.00 / 100</div>
+                    <div class="calc-result" id="resultado-calculado">Puntaje Ponderado: 82.00 / 100</div>
                     <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">Fórmula aplicada: (Promedio × 10 × 0.40) + (Examen × 0.60)</p>
                 </div>
             </div>
@@ -618,206 +647,182 @@
         </footer>
     </section>
 
-    <!-- SCRIPT PRINCIPAL DE LÓGICA Y NAVEGACIÓN -->
     <script>
-        // Elementos DOM
-        const formLogin = document.getElementById('form-login');
-        const formRegister = document.getElementById('form-register');
-        const cardLogin = document.getElementById('card-login');
-        const cardRegister = document.getElementById('card-register');
-        const linkToRegister = document.getElementById('link-to-register');
-        const linkToLogin = document.getElementById('link-to-login');
+        const vistaPortada = document.getElementById('vista-portada');
+        const vistaConocenos = document.getElementById('vista-conocenos');
+        const vistaMenu = document.getElementById('vista-menu');
+        const vistaTest = document.getElementById('vista-test');
+        const vistaResultados = document.getElementById('vista-resultados');
+        const vistaFormularioUniversidades = document.getElementById('vista-formulario-universidades');
+        const vistaResultadosUniversidades = document.getElementById('vista-resultados-universidades');
+        const vistaSimulador = document.getElementById('vista-simulador');
 
-        const viewAuth = document.getElementById('view-auth');
-        const viewWelcome = document.getElementById('view-welcome');
-        const viewDashboard = document.getElementById('view-dashboard');
-        const viewTest = document.getElementById('view-test');
-        const viewResults = document.getElementById('view-results');
-        const viewRoute = document.getElementById('view-route');
+        const botonIngresarPortada = document.getElementById('boton-ingresar-portada');
+        const botonIniciarMenu = document.getElementById('boton-iniciar-menu');
 
-        const btnStartPlatform = document.getElementById('btn-start-platform');
-
-        // Alternar Registro/Login
-        if (linkToRegister) {
-            linkToRegister.addEventListener('click', (e) => {
-                e.preventDefault();
-                cardLogin.classList.add('hidden');
-                cardRegister.classList.remove('hidden');
+        if (botonIngresarPortada) {
+            botonIngresarPortada.addEventListener('click', () => {
+                cambiarVistaGlobal(vistaConocenos);
             });
         }
 
-        if (linkToLogin) {
-            linkToLogin.addEventListener('click', (e) => {
-                e.preventDefault();
-                cardRegister.classList.add('hidden');
-                cardLogin.classList.remove('hidden');
+        if (botonIniciarMenu) {
+            botonIniciarMenu.addEventListener('click', () => {
+                cambiarVistaGlobal(vistaMenu);
             });
         }
 
-        // Cambio de vistas
-        function cambiarVista(vista) {
-            viewAuth.classList.add('hidden');
-            viewWelcome.classList.add('hidden');
-            viewDashboard.classList.add('hidden');
-            viewTest.classList.add('hidden');
-            viewResults.classList.add('hidden');
-            viewRoute.classList.add('hidden');
-            vista.classList.remove('hidden');
+        function cambiarVistaGlobal(vistaDestino) {
+            vistaPortada.classList.add('hidden');
+            vistaConocenos.classList.add('hidden');
+            vistaMenu.classList.add('hidden');
+            vistaTest.classList.add('hidden');
+            vistaResultados.classList.add('hidden');
+            vistaFormularioUniversidades.classList.add('hidden');
+            vistaResultadosUniversidades.classList.add('hidden');
+            vistaSimulador.classList.add('hidden');
+            vistaDestino.classList.remove('hidden');
         }
 
-        // Inicio de Sesión y Registro -> Pasan PRIMERO a la pantalla de Bienvenida/Conócenos
-        if (formLogin) {
-            formLogin.addEventListener('submit', (e) => {
-                e.preventDefault();
-                cambiarVista(viewWelcome);
-            });
-        }
-
-        if (formRegister) {
-            formRegister.addEventListener('submit', (e) => {
-                e.preventDefault();
-                cambiarVista(viewWelcome);
-            });
-        }
-
-        if (btnStartPlatform) {
-            btnStartPlatform.addEventListener('click', () => {
-                cambiarVista(viewDashboard);
-            });
-        }
-
-        // Navegación mediante Sub-Navbar y Menús
-        document.querySelectorAll('.sub-navbar button, .option-card, #dash-logo-btn, #res-logo-btn, #route-logo-btn, #btn-go-route').forEach(el => {
-            el.addEventListener('click', function() {
-                const target = this.getAttribute('data-target') || this.id;
-                if (target === 'dashboard' || target === 'dash-logo-btn') cambiarVista(viewDashboard);
-                else if (target === 'test' || target === 'opt-start-test') cambiarVista(viewTest);
-                else if (target === 'results' || target === 'opt-universities' || target === 'res-logo-btn') cambiarVista(viewResults);
-                else if (target === 'route' || target === 'opt-my-route' || target === 'route-logo-btn' || target === 'btn-go-route') cambiarVista(viewRoute);
+        document.querySelectorAll('.sub-navbar button, .option-card, #logo-menu, #logo-resultados, #logo-formulario, #logo-simulador, #tarjeta-ir-test, #tarjeta-ir-buscador, #tarjeta-ir-simulador, #boton-ir-buscador-desde-resultados, #boton-ir-simulador-desde-resultados').forEach(elemento => {
+            elemento.addEventListener('click', function() {
+                const destino = this.getAttribute('data-destino') || this.id;
+                if (destino === 'menu' || destino === 'logo-menu') cambiarVistaGlobal(vistaMenu);
+                else if (destino === 'test' || destino === 'tarjeta-ir-test') cambiarVistaGlobal(vistaTest);
+                else if (destino === 'resultados') cambiarVistaGlobal(vistaResultados);
+                else if (destino === 'formulario-universidades' || destino === 'tarjeta-ir-buscador' || destino === 'boton-ir-buscador-desde-resultados') cambiarVistaGlobal(vistaFormularioUniversidades);
+                else if (destino === 'simulador' || destino === 'tarjeta-ir-simulador' || destino === 'boton-ir-simulador-desde-resultados') cambiarVistaGlobal(vistaSimulador);
             });
         });
 
-        // LÓGICA DEL TEST VOCACIONAL (8 Preguntas en 4 Pasos)
-        let currentStep = 1;
-        const totalSteps = 4;
-        const answers = {};
-        const stepIndicator = document.getElementById('step-indicator');
+        let pasoActualTest = 1;
+        const totalPasosTest = 5;
+        const respuestasTest = {};
+        const textoProgreso = document.getElementById('texto-progreso');
         const barraProgreso = document.getElementById('barra-progreso');
-        const btnPrev = document.getElementById('btn-prev-step');
-        const btnNext = document.getElementById('btn-next-step');
+        const botonAnteriorPaso = document.getElementById('boton-anterior-paso');
+        const botonSiguientePaso = document.getElementById('boton-siguiente-paso');
 
-        document.querySelectorAll('.btn-option').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const q = this.getAttribute('data-q');
-                const val = this.getAttribute('data-val');
-                document.querySelectorAll(`.btn-option[data-q="${q}"]`).forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                answers[q] = val;
+        document.querySelectorAll('.boton-opcion').forEach(boton => {
+            boton.addEventListener('click', function() {
+                const numeroPregunta = this.getAttribute('data-pregunta');
+                const valorOpcion = this.getAttribute('data-valor');
+                document.querySelectorAll(`.boton-opcion[data-pregunta="${numeroPregunta}"]`).forEach(b => b.classList.remove('activo'));
+                this.classList.add('activo');
+                respuestasTest[numeroPregunta] = valorOpcion;
             });
         });
 
-        if (btnNext) {
-            btnNext.addEventListener('click', () => {
-                if (currentStep < totalSteps) {
-                    document.getElementById(`step-${currentStep}`).classList.add('hidden');
-                    currentStep++;
-                    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-                    updateTestUI();
+        if (botonSiguientePaso) {
+            botonSiguientePaso.addEventListener('click', () => {
+                if (pasoActualTest < totalPasosTest) {
+                    document.getElementById(`paso-test-${pasoActualTest}`).classList.add('hidden');
+                    pasoActualTest++;
+                    document.getElementById(`paso-test-${pasoActualTest}`).classList.remove('hidden');
+                    actualizarInterfazTest();
                 } else {
-                    calcularResultadoTest();
-                    cambiarVista(viewResults);
+                    calcularResultadoTestCompleto();
+                    cambiarVistaGlobal(vistaResultados);
                 }
             });
         }
 
-        if (btnPrev) {
-            btnPrev.addEventListener('click', () => {
-                if (currentStep > 1) {
-                    document.getElementById(`step-${currentStep}`).classList.add('hidden');
-                    currentStep--;
-                    document.getElementById(`step-${currentStep}`).classList.remove('hidden');
-                    updateTestUI();
+        if (botonAnteriorPaso) {
+            botonAnteriorPaso.addEventListener('click', () => {
+                if (pasoActualTest > 1) {
+                    document.getElementById(`paso-test-${pasoActualTest}`).classList.add('hidden');
+                    pasoActualTest--;
+                    document.getElementById(`paso-test-${pasoActualTest}`).classList.remove('hidden');
+                    actualizarInterfazTest();
                 }
             });
         }
 
-        function updateTestUI() {
-            stepIndicator.textContent = `Paso ${currentStep} de ${totalSteps}`;
-            barraProgreso.style.width = `${(currentStep / totalSteps) * 100}%`;
-            btnPrev.style.visibility = currentStep === 1 ? 'hidden' : 'visible';
-            btnNext.textContent = currentStep === totalSteps ? 'Ver Resultados' : 'Siguiente →';
+        function actualizarInterfazTest() {
+            textoProgreso.textContent = `Paso ${pasoActualTest} de ${totalPasosTest}`;
+            barraProgreso.style.width = `${(pasoActualTest / totalPasosTest) * 100}%`;
+            botonAnteriorPaso.style.visibility = pasoActualTest === 1 ? 'hidden' : 'visible';
+            botonSiguientePaso.textContent = pasoActualTest === totalPasosTest ? 'Ver Resultados' : 'Siguiente →';
         }
 
-        function calcularResultadoTest() {
-            const counts = { I:0, A:0, S:0, E:0, C:0 };
-            Object.values(answers).forEach(val => { if (counts[val] !== undefined) counts[val]++; });
+        function calcularResultadoTestCompleto() {
+            const conteoPerfiles = { I:0, A:0, S:0, E:0, J:0 };
+            Object.values(respuestasTest).forEach(val => { if (conteoPerfiles[val] !== undefined) conteoPerfiles[val]++; });
             
-            let maxVal = 'S';
-            let maxCount = -1;
-            for (const key in counts) {
-                if (counts[key] > maxCount) {
-                    maxCount = counts[key];
-                    maxVal = key;
+            let perfilMaximo = 'S';
+            let conteoMaximo = -1;
+            for (const clave in conteoPerfiles) {
+                if (conteoPerfiles[clave] > conteoMaximo) {
+                    conteoMaximo = conteoPerfiles[clave];
+                    perfilMaximo = clave;
                 }
             }
 
-            const title = document.getElementById('res-area-title');
-            const desc = document.getElementById('res-area-desc');
-            const career = document.getElementById('res-career-title');
+            const tituloArea = document.getElementById('titulo-area-resultado');
+            const descripcionArea = document.getElementById('descripcion-area-resultado');
+            const tituloCarrera = document.getElementById('titulo-carrera-resultado');
+            const textoCompatibilidad = document.getElementById('compatibilidad-resultado');
 
-            if (maxVal === 'I') {
-                title.textContent = 'Perfil Científico y Tecnológico';
-                desc.textContent = 'Destacas en el análisis lógico, la informática, la investigación aplicada y la resolución de problemas técnicos.';
-                career.textContent = 'Ingeniería en Sistemas / Ciencia de Datos / Ciberseguridad';
-            } else if (maxVal === 'A') {
-                title.textContent = 'Perfil Creativo y Expresivo';
-                desc.textContent = 'Tienes una fuerte inclinación hacia la innovación visual, la producción de contenidos, el diseño y la comunicación.';
-                career.textContent = 'Diseño Digital / Arquitectura / Artes Visuales / Animación';
-            } else if (maxVal === 'E') {
-                title.textContent = 'Perfil Emprendedor y de Liderazgo';
-                desc.textContent = 'Sobresales en la gestión de proyectos, visión estratégica, negocios y dirección de equipos multidisiplinarios.';
-                career.textContent = 'Comercio Internacional / Administración / Finanzas / Marketing';
+            if (perfilMaximo === 'I') {
+                tituloArea.textContent = 'Perfil Científico y Tecnológico';
+                descripcionArea.textContent = 'Destacas en el análisis lógico, la informática, la investigación aplicada y la resolución de problemas técnicos complejos.';
+                tituloCarrera.textContent = 'Ingeniería en Sistemas / Ciencia de Datos / Ciberseguridad';
+                textoCompatibilidad.textContent = 'Afinidad analítica superior al 92% según tus respuestas técnicas.';
+            } else if (perfilMaximo === 'A') {
+                tituloArea.textContent = 'Perfil Creativo y Expresivo';
+                descripcionArea.textContent = 'Tienes una fuerte inclinación hacia la innovación visual, la producción de contenidos, el diseño y la comunicación artística.';
+                tituloCarrera.textContent = 'Diseño Digital / Arquitectura / Artes Visuales / Animación';
+                textoCompatibilidad.textContent = 'Afinidad creativa superior al 90% según tus respuestas artísticas.';
+            } else if (perfilMaximo === 'E') {
+                tituloArea.textContent = 'Perfil Emprendedor y de Liderazgo';
+                descripcionArea.textContent = 'Sobresales en la gestión de proyectos, visión estratégica, negocios y dirección de equipos multidisciplinarios.';
+                tituloCarrera.textContent = 'Comercio Internacional / Administración / Finanzas / Marketing';
+                textoCompatibilidad.textContent = 'Afinidad directiva superior al 94% según tus respuestas de liderazgo.';
+            } else if (perfilMaximo === 'J') {
+                tituloArea.textContent = 'Perfil Jurídico y Social';
+                descripcionArea.textContent = 'Posees una marcada inclinación por la justicia, la argumentación legal, la defensa de los derechos y la normatividad social.';
+                tituloCarrera.textContent = 'Derecho / Ciencias Políticas / Criminología / Relaciones Internacionales';
+                textoCompatibilidad.textContent = 'Afinidad jurídica y normativa superior al 95% según tus respuestas.';
             } else {
-                title.textContent = 'Perfil Social y Humanístico';
-                desc.textContent = 'Sobresales en la empatía, la enseñanza, la atención a la salud y la asistencia comunitaria.';
-                career.textContent = 'Psicología / Enfermería / Trabajo Social / Pedagogía';
+                tituloArea.textContent = 'Perfil Social y Humanístico';
+                descripcionArea.textContent = 'Sobresales en la empatía, la enseñanza, la atención a la salud y la asistencia comunitaria.';
+                tituloCarrera.textContent = 'Psicología / Enfermería / Trabajo Social / Pedagogía';
+                textoCompatibilidad.textContent = 'Afinidad humana superior al 93% según tus respuestas sociales.';
             }
         }
 
-        const btnRepeat = document.getElementById('btn-repeat-test');
-        if (btnRepeat) {
-            btnRepeat.addEventListener('click', () => {
-                currentStep = 1;
-                document.querySelectorAll('.test-step').forEach((s, idx) => {
-                    if (idx === 0) s.classList.remove('hidden');
-                    else s.classList.add('hidden');
+        const botonRepetirTest = document.getElementById('boton-repetir-test');
+        if (botonRepetirTest) {
+            botonRepetirTest.addEventListener('click', () => {
+                pasoActualTest = 1;
+                document.querySelectorAll('.test-step').forEach((paso, indice) => {
+                    if (indice === 0) paso.classList.remove('hidden');
+                    else paso.classList.add('hidden');
                 });
-                document.querySelectorAll('.btn-option').forEach(b => b.classList.remove('active'));
-                updateTestUI();
-                cambiarVista(viewTest);
+                document.querySelectorAll('.boton-opcion').forEach(b => b.classList.remove('activo'));
+                actualizarInterfazTest();
+                cambiarVistaGlobal(vistaTest);
             });
         }
 
-        // LÓGICA DEL SIMULADOR
-        const btnCalc = document.getElementById('btn-calcular');
-        if (btnCalc) {
-            btnCalc.addEventListener('click', () => {
-                const prom = parseFloat(document.getElementById('calc-promedio').value) || 0;
-                const exam = parseFloat(document.getElementById('calc-examen').value) || 0;
-                const total = (prom * 10 * 0.40) + (exam * 0.60);
-                document.getElementById('calc-output').textContent = `Puntaje Ponderado: ${total.toFixed(2)} / 100`;
+        const botonCalcularPuntaje = document.getElementById('boton-calcular-puntaje');
+        if (botonCalcularPuntaje) {
+            botonCalcularPuntaje.addEventListener('click', () => {
+                const promedioBachillerato = parseFloat(document.getElementById('campo-promedio').value) || 0;
+                const puntajeExamen = parseFloat(document.getElementById('campo-examen').value) || 0;
+                const puntajeTotalFinal = (promedioBachillerato * 10 * 0.40) + (puntajeExamen * 0.60);
+                document.getElementById('resultado-calculado').textContent = `Puntaje Ponderado: ${puntajeTotalFinal.toFixed(2)} / 100`;
             });
         }
 
-        // ESTRUCTURA DE DATOS PARA REGIONES Y ESTADOS
-        const regionesData = {
+        const baseRegionesEstados = {
             "Centro": ["Tlaxcala", "Puebla", "Ciudad de México", "Estado de México", "Hidalgo", "Morelos"],
             "Norte": ["Nuevo León", "Chihuahua", "Coahuila", "Sonora", "Baja California"],
             "Occidente": ["Jalisco", "Guanajuato", "Michoacán", "Querétaro", "Aguascalientes"],
             "Sur-Sureste": ["Veracruz", "Oaxaca", "Chiapas", "Yucatán", "Quintana Roo"]
         };
 
-        const universidadesData = {
+        const baseUniversidadesPorEstado = {
             "Tlaxcala": {
                 publicas: ["Universidad Autónoma de Tlaxcala (UATx)", "Universidad Politécnica de Tlaxcala (UPTx)", "Instituto Tecnológico de Apizaco (ITA)"],
                 privadas: ["Universidad del Valle de Tlaxcala (UVT)", "Universidad Anáhuac (Campus cercano)", "Universidad Alvart Tlaxcala"]
@@ -844,79 +849,104 @@
             }
         };
 
-        const regionSelect = document.getElementById('filtro-region-select');
-        const estadoSelect = document.getElementById('filtro-estado-select');
+        const selectorRegion = document.getElementById('lista-region');
+        const selectorEstado = document.getElementById('lista-estado');
 
-        function cargarEstadosPorRegion(region) {
-            const estados = regionesData[region] || [];
-            estadoSelect.innerHTML = '';
-            estados.forEach(e => {
-                const opt = document.createElement('option');
-                opt.value = e;
-                opt.textContent = e;
-                estadoSelect.appendChild(opt);
+        function poblarEstadosSegunRegion(regionSeleccionada) {
+            const listaEstados = baseRegionesEstados[regionSeleccionada] || [];
+            selectorEstado.innerHTML = '';
+            listaEstados.forEach(estadoTexto => {
+                const optionElemento = document.createElement('option');
+                optionElemento.value = estadoTexto;
+                optionElemento.textContent = estadoTexto;
+                selectorEstado.appendChild(optionElemento);
             });
         }
 
-        if (regionSelect) {
-            regionSelect.addEventListener('change', function() {
-                cargarEstadosPorRegion(this.value);
+        if (selectorRegion) {
+            selectorRegion.addEventListener('change', function() {
+                poblarEstadosSegunRegion(this.value);
             });
-            // Carga inicial por defecto
-            cargarEstadosPorRegion("Centro");
+            poblarEstadosSegunRegion("Centro");
         }
 
-        // Búsqueda y renderizado de Universidades (Públicas y Privadas)
-        const formFiltro = document.getElementById('form-filtro-universidades');
-        const mainResultsLayout = document.getElementById('main-results-layout');
-        const viewUniResultsPage = document.getElementById('view-uni-results-page');
-        const btnBackToForm = document.getElementById('btn-back-to-form');
-        const appliedFiltersText = document.getElementById('applied-filters-text');
-        const listaUni = document.getElementById('lista-universidades-estado');
-        const titleEstado = document.getElementById('title-estado-resultados');
+        const formularioFiltrosAvanzado = document.getElementById('formulario-filtros-avanzado');
+        const botonRegresarFormulario = document.getElementById('boton-regresar-formulario');
+        const textoFiltrosAplicados = document.getElementById('texto-filtros-aplicados');
+        const listaUniversidadesEncontradas = document.getElementById('lista-universidades-encontradas');
+        const tituloEstadoResultados = document.getElementById('titulo-estado-resultados');
 
-        if (formFiltro) {
-            formFiltro.addEventListener('submit', function(e) {
-                e.preventDefault();
+        const campoCorreoAspirante = document.getElementById('campo-correo-aspirante');
+        const campoPresupuesto = document.getElementById('campo-presupuesto');
+        const errorCorreo = document.getElementById('error-correo');
+        const errorPresupuesto = document.getElementById('error-presupuesto');
 
-                const modalidad = document.getElementById('filtro-modalidad').value;
-                const turno = document.getElementById('filtro-turno').value;
-                const presupuesto = parseFloat(document.getElementById('filtro-presupuesto').value) || 0;
-                const region = regionSelect.value;
-                const estado = estadoSelect.value;
+        if (formularioFiltrosAvanzado) {
+            formularioFiltrosAvanzado.addEventListener('submit', function(evento) {
+                evento.preventDefault();
+                let formularioValido = true;
 
-                mainResultsLayout.classList.add('hidden');
-                viewUniResultsPage.classList.remove('hidden');
+                const valorCorreo = campoCorreoAspirante.value.trim();
+                const expresionRegularCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!expresionRegularCorreo.test(valorCorreo)) {
+                    errorCorreo.classList.remove('hidden');
+                    formularioValido = false;
+                } else {
+                    errorCorreo.classList.add('hidden');
+                }
 
-                appliedFiltersText.innerHTML = `Filtros aplicados: Región <strong>${region}</strong> | Estado: <strong>${estado}</strong> | Modalidad: <strong>${modalidad}</strong> | Presupuesto: <strong>$${presupuesto} MXN</strong>`;
-                titleEstado.textContent = `Universidades recomendadas en ${estado}`;
+                const valorPresupuesto = parseFloat(campoPresupuesto.value);
+                if (isNaN(valorPresupuesto) || valorPresupuesto <= 500) {
+                    errorPresupuesto.classList.remove('hidden');
+                    formularioValido = false;
+                } else {
+                    errorPresupuesto.classList.add('hidden');
+                }
 
-                let html = '';
-                const dataEstado = universidadesData[estado] || {
+                if (!formularioValido) {
+                    return;
+                }
+
+                const deseaPublica = document.getElementById('check-publica').checked;
+                const deseaPrivada = document.getElementById('check-privada').checked;
+                const modalidadSeleccionada = document.querySelector('input[name="radio-modalidad"]:checked').value;
+                const regionElegida = selectorRegion.value;
+                const estadoElegido = selectorEstado.value;
+
+                cambiarVistaGlobal(vistaResultadosUniversidades);
+
+                textoFiltrosAplicados.innerHTML = `Correo: <strong>${valorCorreo}</strong> | Región: <strong>${regionElegida}</strong> | Estado: <strong>${estadoElegido}</strong> | Modalidad: <strong>${modalidadSeleccionada}</strong> | Presupuesto mín: <strong>$${valorPresupuesto} MXN</strong>`;
+                tituloEstadoResultados.textContent = `Universidades recomendadas en ${estadoElegido}`;
+
+                let htmlUniversidades = '';
+                const datosEstadoActual = baseUniversidadesPorEstado[estadoElegido] || {
                     publicas: [`Universidad Autónoma de ${estado}`, `Instituto Tecnológico de ${estado}`],
-                    privadas: [`Universidad Tecnológica Privada de ${estado}`, `Campus Universitario de ${estado}`]
+                    privadas: [`Universidad Privada de ${estado}`, `Centro Universitario ${estado}`]
                 };
 
-                // Si el presupuesto es bajo/medio (menor a $6000), priorizamos públicas
-                // Si es mayor, mostramos ambas dando relevancia a opciones destacadas
-                dataEstado.publicas.forEach(u => {
-                    html += `<li><span>${u}</span> <span class="badge-type badge-publica">Pública</span></li>`;
-                });
-
-                if (presupuesto >= 3500) {
-                    dataEstado.privadas.forEach(u => {
-                        html += `<li><span>${u}</span> <span class="badge-type badge-privada">Privada</span></li>`;
+                if (deseaPublica) {
+                    datosEstadoActual.publicas.forEach(uni => {
+                        htmlUniversidades += `<li><span>${uni}</span> <span class="etiqueta-tipo etiqueta-publica">Pública</span></li>`;
                     });
                 }
 
-                listaUni.innerHTML = html;
+                if (deseaPrivada && valorPresupuesto >= 3000) {
+                    datosEstadoActual.privadas.forEach(uni => {
+                        htmlUniversidades += `<li><span>${uni}</span> <span class="etiqueta-tipo etiqueta-privada">Privada</span></li>`;
+                    });
+                }
+
+                if (htmlUniversidades === '') {
+                    htmlUniversidades = `<li><span>No se encontraron instituciones con los criterios de presupuesto y tipo seleccionados.</span></li>`;
+                }
+
+                listaUniversidadesEncontradas.innerHTML = htmlUniversidades;
             });
         }
 
-        if (btnBackToForm) {
-            btnBackToForm.addEventListener('click', function() {
-                viewUniResultsPage.classList.add('hidden');
-                mainResultsLayout.classList.remove('hidden');
+        if (botonRegresarFormulario) {
+            botonRegresarFormulario.addEventListener('click', function() {
+                cambiarVistaGlobal(vistaFormularioUniversidades);
             });
         }
     </script>
